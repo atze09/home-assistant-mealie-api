@@ -1,0 +1,178 @@
+create_recipe:
+  fields:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: mealie_api
+    name:
+      required: true
+      example: "Shrimps in Paprika-Sahnesoße"
+      selector:
+        text:
+    description:
+      selector:
+        text:
+          multiline: true
+    ingredients:
+      example: ["500 g Shrimps", "3 Knoblauchzehen"]
+      selector:
+        text:
+          multiple: true
+    instructions:
+      example: ["Shrimps pulen.", "Olivenöl erhitzen."]
+      selector:
+        text:
+          multiple: true
+    notes:
+      selector:
+        text:
+          multiple: true
+    recipe_yield:
+      example: "4 Portionen"
+      selector:
+        text:
+    prep_time:
+      example: 15
+      selector:
+        text:
+    cook_time:
+      example: 20
+      selector:
+        text:
+    total_time:
+      example: 35
+      selector:
+        text:
+    tags:
+      selector:
+        text:
+          multiple: true
+    categories:
+      selector:
+        text:
+          multiple: true
+    source_url:
+      selector:
+        text:
+
+update_recipe:
+  fields:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: mealie_api
+    recipe:
+      required: true
+      example: "shrimps-in-paprika-sahnesosse"
+      selector:
+        text:
+    name:
+      selector:
+        text:
+    description:
+      selector:
+        text:
+          multiline: true
+    ingredients:
+      selector:
+        text:
+          multiple: true
+    instructions:
+      selector:
+        text:
+          multiple: true
+    notes:
+      selector:
+        text:
+          multiple: true
+    recipe_yield:
+      selector:
+        text:
+    prep_time:
+      selector:
+        text:
+    cook_time:
+      selector:
+        text:
+    total_time:
+      selector:
+        text:
+    tags:
+      selector:
+        text:
+          multiple: true
+    categories:
+      selector:
+        text:
+          multiple: true
+    source_url:
+      selector:
+        text:
+
+delete_recipe:
+  fields:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: mealie_api
+    recipe:
+      required: true
+      selector:
+        text:
+
+create_from_json:
+  fields:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: mealie_api
+    data:
+      required: true
+      selector:
+        text:
+          multiline: true
+    include_tags:
+      default: true
+      selector:
+        boolean:
+
+set_recipe_image:
+  fields:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: mealie_api
+    recipe:
+      required: true
+      selector:
+        text:
+    image_url:
+      selector:
+        text:
+    image_path:
+      example: "/media/rezepte/shrimps.jpg"
+      selector:
+        text:
+
+api_request:
+  fields:
+    config_entry_id:
+      selector:
+        config_entry:
+          integration: mealie_api
+    method:
+      required: true
+      selector:
+        select:
+          options: [GET, POST, PUT, PATCH, DELETE]
+    path:
+      required: true
+      example: "/api/households/shopping/lists"
+      selector:
+        text:
+    data:
+      selector:
+        object:
+    params:
+      selector:
+        object:

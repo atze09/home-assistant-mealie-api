@@ -1,0 +1,224 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mealie API",
+        "description": "URL deiner Mealie-Instanz und ein API-Token (Mealie → Profil → API-Tokens).",
+        "data": {
+          "url": "URL",
+          "api_token": "API-Token",
+          "verify_ssl": "SSL-Zertifikat prüfen"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen",
+      "invalid_auth": "Token ungültig"
+    },
+    "abort": {
+      "already_configured": "Bereits eingerichtet"
+    }
+  },
+  "services": {
+    "create_recipe": {
+      "name": "Mealie-Rezept anlegen",
+      "description": "Legt in Mealie ein neues Rezept aus Name, Zutaten und Zubereitungsschritten an. Gibt Slug und URL zurück.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instanz",
+          "description": "Mealie-API-Instanz (nur nötig bei mehreren)."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Name des Rezepts."
+        },
+        "description": {
+          "name": "Beschreibung",
+          "description": "Kurzbeschreibung."
+        },
+        "ingredients": {
+          "name": "Zutaten",
+          "description": "Zutaten, eine pro Eintrag oder Zeile, z. B. '500 g Shrimps'. Ersetzt beim Ändern alle Zutaten."
+        },
+        "instructions": {
+          "name": "Zubereitung",
+          "description": "Zubereitungsschritte, einer pro Eintrag oder Zeile. Ersetzt beim Ändern alle Schritte."
+        },
+        "notes": {
+          "name": "Notizen",
+          "description": "Notizen, eine pro Eintrag."
+        },
+        "recipe_yield": {
+          "name": "Portionen",
+          "description": "z. B. '4 Portionen'."
+        },
+        "prep_time": {
+          "name": "Vorbereitungszeit",
+          "description": "Minuten oder Text."
+        },
+        "cook_time": {
+          "name": "Kochzeit",
+          "description": "Minuten oder Text."
+        },
+        "total_time": {
+          "name": "Gesamtzeit",
+          "description": "Minuten oder Text."
+        },
+        "tags": {
+          "name": "Tags",
+          "description": "Namen der Schlagwörter; fehlende werden angelegt. Ersetzt beim Bearbeiten alle Schlagwörter."
+        },
+        "categories": {
+          "name": "Kategorien",
+          "description": "Namen der Kategorien; fehlende werden angelegt. Ersetzt beim Bearbeiten alle Kategorien."
+        },
+        "source_url": {
+          "name": "Quelle",
+          "description": "URL der Originalquelle."
+        }
+      }
+    },
+    "update_recipe": {
+      "name": "Mealie-Rezept ändern",
+      "description": "Ändert Felder eines bestehenden Mealie-Rezepts. Nur angegebene Felder werden geändert.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instanz",
+          "description": "Mealie-API-Instanz (nur nötig bei mehreren)."
+        },
+        "recipe": {
+          "name": "Rezept",
+          "description": "Slug oder ID des Rezepts."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Name des Rezepts."
+        },
+        "description": {
+          "name": "Beschreibung",
+          "description": "Kurzbeschreibung."
+        },
+        "ingredients": {
+          "name": "Zutaten",
+          "description": "Zutaten, eine pro Eintrag oder Zeile, z. B. '500 g Shrimps'. Ersetzt beim Ändern alle Zutaten."
+        },
+        "instructions": {
+          "name": "Zubereitung",
+          "description": "Zubereitungsschritte, einer pro Eintrag oder Zeile. Ersetzt beim Ändern alle Schritte."
+        },
+        "notes": {
+          "name": "Notizen",
+          "description": "Notizen, eine pro Eintrag."
+        },
+        "recipe_yield": {
+          "name": "Portionen",
+          "description": "z. B. '4 Portionen'."
+        },
+        "prep_time": {
+          "name": "Vorbereitungszeit",
+          "description": "Minuten oder Text."
+        },
+        "cook_time": {
+          "name": "Kochzeit",
+          "description": "Minuten oder Text."
+        },
+        "total_time": {
+          "name": "Gesamtzeit",
+          "description": "Minuten oder Text."
+        },
+        "tags": {
+          "name": "Tags",
+          "description": "Namen der Schlagwörter; fehlende werden angelegt. Ersetzt beim Bearbeiten alle Schlagwörter."
+        },
+        "categories": {
+          "name": "Kategorien",
+          "description": "Namen der Kategorien; fehlende werden angelegt. Ersetzt beim Bearbeiten alle Kategorien."
+        },
+        "source_url": {
+          "name": "Quelle",
+          "description": "URL der Originalquelle."
+        }
+      }
+    },
+    "delete_recipe": {
+      "name": "Mealie-Rezept löschen",
+      "description": "Löscht ein Rezept in Mealie.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instanz",
+          "description": "Mealie-API-Instanz (nur nötig bei mehreren)."
+        },
+        "recipe": {
+          "name": "Rezept",
+          "description": "Slug oder ID des Rezepts."
+        }
+      }
+    },
+    "create_from_json": {
+      "name": "Mealie-Rezept aus JSON/HTML anlegen",
+      "description": "Legt ein Rezept aus schema.org-JSON oder HTML an.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instanz",
+          "description": "Mealie-API-Instanz (nur nötig bei mehreren)."
+        },
+        "data": {
+          "name": "Daten",
+          "description": "schema.org-Recipe-JSON (Objekt oder Text) oder das HTML einer Rezeptseite."
+        },
+        "include_tags": {
+          "name": "Tags übernehmen",
+          "description": "Schlagwörter aus den Daten übernehmen."
+        }
+      }
+    },
+    "set_recipe_image": {
+      "name": "Mealie-Rezeptbild setzen",
+      "description": "Setzt das Bild eines Rezepts aus einer URL oder Datei.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instanz",
+          "description": "Mealie-API-Instanz (nur nötig bei mehreren)."
+        },
+        "recipe": {
+          "name": "Rezept",
+          "description": "Slug oder ID des Rezepts."
+        },
+        "image_url": {
+          "name": "Bild-URL",
+          "description": "URL eines Bildes, das Mealie herunterlädt."
+        },
+        "image_path": {
+          "name": "Bilddatei",
+          "description": "Pfad zu einer Bilddatei in HA (muss in allowlist_external_dirs stehen)."
+        }
+      }
+    },
+    "api_request": {
+      "name": "Mealie-API-Anfrage",
+      "description": "Beliebige Anfrage an die Mealie-REST-API (z. B. Einkaufslisten, Essensplan, Tags). Gibt die Antwort zurück.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instanz",
+          "description": "Mealie-API-Instanz (nur nötig bei mehreren)."
+        },
+        "method": {
+          "name": "Methode",
+          "description": "HTTP-Methode."
+        },
+        "path": {
+          "name": "Pfad",
+          "description": "API-Pfad, beginnt mit /api/."
+        },
+        "data": {
+          "name": "Daten",
+          "description": "JSON-Body der Anfrage."
+        },
+        "params": {
+          "name": "Query-Parameter",
+          "description": "Query-Parameter als Objekt."
+        }
+      }
+    }
+  }
+}

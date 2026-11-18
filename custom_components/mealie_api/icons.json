@@ -1,0 +1,22 @@
+{
+  "services": {
+    "create_recipe": {
+      "service": "mdi:book-plus"
+    },
+    "update_recipe": {
+      "service": "mdi:book-edit"
+    },
+    "delete_recipe": {
+      "service": "mdi:book-remove"
+    },
+    "create_from_json": {
+      "service": "mdi:code-json"
+    },
+    "set_recipe_image": {
+      "service": "mdi:image-edit"
+    },
+    "api_request": {
+      "service": "mdi:api"
+    }
+  }
+}

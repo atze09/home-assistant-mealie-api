@@ -1,0 +1,15 @@
+{
+  "domain": "mealie_api",
+  "name": "Mealie API",
+  "codeowners": [
+    "@atze09"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/atze09/home-assistant-mealie-api",
+  "integration_type": "service",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/atze09/home-assistant-mealie-api/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

@@ -1,0 +1,224 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mealie API",
+        "description": "URL of your Mealie instance and an API token (Mealie → Profile → API tokens).",
+        "data": {
+          "url": "URL",
+          "api_token": "API token",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid token"
+    },
+    "abort": {
+      "already_configured": "Already configured"
+    }
+  },
+  "services": {
+    "create_recipe": {
+      "name": "Create Mealie recipe",
+      "description": "Creates a new recipe in Mealie from name, ingredients and steps. Returns slug and URL.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instance",
+          "description": "Mealie API instance (only needed if there are several)."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Recipe name."
+        },
+        "description": {
+          "name": "Description",
+          "description": "Short description."
+        },
+        "ingredients": {
+          "name": "Ingredients",
+          "description": "One per item or line, e.g. '500 g shrimp'. Replaces all ingredients on update."
+        },
+        "instructions": {
+          "name": "Instructions",
+          "description": "One step per item or line. Replaces all steps on update."
+        },
+        "notes": {
+          "name": "Notes",
+          "description": "Notes, one per item."
+        },
+        "recipe_yield": {
+          "name": "Yield",
+          "description": "e.g. '4 servings'."
+        },
+        "prep_time": {
+          "name": "Prep time",
+          "description": "Minutes or text."
+        },
+        "cook_time": {
+          "name": "Cook time",
+          "description": "Minutes or text."
+        },
+        "total_time": {
+          "name": "Total time",
+          "description": "Minutes or text."
+        },
+        "tags": {
+          "name": "Tags",
+          "description": "Tag names; missing tags are created. Replaces all tags on update."
+        },
+        "categories": {
+          "name": "Categories",
+          "description": "Category names; missing categories are created. Replaces all categories on update."
+        },
+        "source_url": {
+          "name": "Source URL",
+          "description": "Original source URL."
+        }
+      }
+    },
+    "update_recipe": {
+      "name": "Update Mealie recipe",
+      "description": "Updates fields of an existing Mealie recipe. Only given fields change.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instance",
+          "description": "Mealie API instance (only needed if there are several)."
+        },
+        "recipe": {
+          "name": "Recipe",
+          "description": "Recipe slug or ID."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Recipe name."
+        },
+        "description": {
+          "name": "Description",
+          "description": "Short description."
+        },
+        "ingredients": {
+          "name": "Ingredients",
+          "description": "One per item or line, e.g. '500 g shrimp'. Replaces all ingredients on update."
+        },
+        "instructions": {
+          "name": "Instructions",
+          "description": "One step per item or line. Replaces all steps on update."
+        },
+        "notes": {
+          "name": "Notes",
+          "description": "Notes, one per item."
+        },
+        "recipe_yield": {
+          "name": "Yield",
+          "description": "e.g. '4 servings'."
+        },
+        "prep_time": {
+          "name": "Prep time",
+          "description": "Minutes or text."
+        },
+        "cook_time": {
+          "name": "Cook time",
+          "description": "Minutes or text."
+        },
+        "total_time": {
+          "name": "Total time",
+          "description": "Minutes or text."
+        },
+        "tags": {
+          "name": "Tags",
+          "description": "Tag names; missing tags are created. Replaces all tags on update."
+        },
+        "categories": {
+          "name": "Categories",
+          "description": "Category names; missing categories are created. Replaces all categories on update."
+        },
+        "source_url": {
+          "name": "Source URL",
+          "description": "Original source URL."
+        }
+      }
+    },
+    "delete_recipe": {
+      "name": "Delete Mealie recipe",
+      "description": "Deletes a recipe in Mealie.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instance",
+          "description": "Mealie API instance (only needed if there are several)."
+        },
+        "recipe": {
+          "name": "Recipe",
+          "description": "Recipe slug or ID."
+        }
+      }
+    },
+    "create_from_json": {
+      "name": "Create Mealie recipe from JSON/HTML",
+      "description": "Creates a recipe from schema.org JSON or HTML.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instance",
+          "description": "Mealie API instance (only needed if there are several)."
+        },
+        "data": {
+          "name": "Data",
+          "description": "schema.org Recipe JSON (object or text) or the HTML of a recipe page."
+        },
+        "include_tags": {
+          "name": "Include tags",
+          "description": "Import keywords as tags."
+        }
+      }
+    },
+    "set_recipe_image": {
+      "name": "Set Mealie recipe image",
+      "description": "Sets a recipe image from a URL or file.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instance",
+          "description": "Mealie API instance (only needed if there are several)."
+        },
+        "recipe": {
+          "name": "Recipe",
+          "description": "Recipe slug or ID."
+        },
+        "image_url": {
+          "name": "Image URL",
+          "description": "URL of an image Mealie downloads."
+        },
+        "image_path": {
+          "name": "Image path",
+          "description": "Path to an image file in HA (must be in allowlist_external_dirs)."
+        }
+      }
+    },
+    "api_request": {
+      "name": "Mealie API request",
+      "description": "Arbitrary request to the Mealie REST API (shopping lists, meal plans, tags …). Returns the response.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Instance",
+          "description": "Mealie API instance (only needed if there are several)."
+        },
+        "method": {
+          "name": "Method",
+          "description": "HTTP method."
+        },
+        "path": {
+          "name": "Path",
+          "description": "API path starting with /api/."
+        },
+        "data": {
+          "name": "Data",
+          "description": "JSON body of the request."
+        },
+        "params": {
+          "name": "Query params",
+          "description": "Query parameters as object."
+        }
+      }
+    }
+  }
+}
